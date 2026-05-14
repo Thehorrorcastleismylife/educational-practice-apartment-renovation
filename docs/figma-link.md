@@ -1,4 +1,10 @@
-https://www.figma.com/proto/zr0aikmDOMypSDE5H7T88X/%D1%80%D0%B5%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%81?node-id=0-1&t=V3GPjXboPiuVdPAU-1
+референсы:
+
+https://rm53.ru/
+
+https://velikij-novgorod.korona-remont.ru/
+
+https://vnov.proff-remont.ru/
 
 были выбраны спокойные цвета: бежевый, светло-синий и коричневый
 
