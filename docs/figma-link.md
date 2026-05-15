@@ -6,6 +6,8 @@ https://velikij-novgorod.korona-remont.ru/
 
 https://vnov.proff-remont.ru/
 
+https://www.figma.com/design/zr0aikmDOMypSDE5H7T88X/%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD?node-id=0-1&p=f&t=1vCMqd9nnhlFTErY-0
+
 были выбраны спокойные цвета: бежевый, светло-синий и коричневый
 
 бежевый: фон, спокойный и ассоциируется с уютом и теплотой
