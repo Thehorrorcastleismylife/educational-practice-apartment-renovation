@@ -1,0 +1,49 @@
+.swiper {
+    width: 100%;
+    height: 400px; /* Задайте желаемую высоту слайдера */
+}
+
+/* Стили для каждого слайда */
+.swiper-slide {
+    /* Центрируем содержимое слайда */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Можно задать фон, если картинка не загрузится */
+    background: #fff; 
+}
+
+/* Стили для изображений внутри слайда */
+.swiper-slide img {
+    display: block;
+    width: 100%;       /* Картинка занимает всю ширину слайда */
+    height: 100%;      /* Картинка занимает всю высоту слайда */
+    object-fit: cover; /* Ключевое свойство! Оно заставляет картинку заполнять блок, обрезая лишнее, но не искажая пропорции */
+}
+/* Стили для контейнера с точками */
+.swiper-pagination {
+    position: absolute;
+    bottom: 10px !important; /* Расположение внизу слайдера */
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+/* Стили для самой точки */
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #8B7355; /* Цвет неактивной точки (как у вас на кнопке "Войти") */
+    opacity: 0.5;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Стили для активной точки */
+.swiper-pagination-bullet-active {
+    background-color: #8B7355; /* Цвет активной точки */
+    opacity: 1;
+    transform: scale(1.2); /* Немного увеличиваем активную точку */
+}
