@@ -7,13 +7,64 @@ body {
     margin: 20px 20px 0px 20px;
 }
 .login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
     height: 57px;
     width: 147px;
     background-color: #8B6F47;
     margin-right: 50px;
     border-radius: 15px;
     border: #8B6F47;
+    cursor: pointer;
 }
+
+/* кнпока купить */
+.purchase-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    height: 57px;
+    width: 200px;
+    background-color: #fdfbf7; /* светлый тёплый фон */
+    margin: 40px auto; /* auto по бокам центрирует */
+    border-radius: 15px;
+    border: 4px solid transparent;
+    cursor: pointer;
+    
+    /* Эффект бегущей обводки */
+   background-image: linear-gradient(#fdfbf7, #fdfbf7), 
+                      linear-gradient(90deg, #236956 0%, #4a9b82 50%, #236956 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-size: 100% 100%, 200% 100%;
+    animation: borderSlide 3s linear infinite;
+    box-shadow: 0 4px 15px rgba(139, 111, 71, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.purchase-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(139, 111, 71, 0.2);
+}
+
+.purchase-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes borderSlide {
+    0% { background-position: 0 0, 0% 0; }
+    100% { background-position: 0 0, 200% 0; }
+}
+
+/* Убедись, что текст внутри кнопки коричневый */
+.purchase-btn #login-txt {
+    color: #236956;
+    font-size: x-large;
+}
+
 #login-txt {
     color: white;
     font-size: x-large;
@@ -35,7 +86,7 @@ body {
 .flxb-txts-main-page a:hover {
     color: #8B6F47;          
 }
-.card-service {
+/* .card-service {
     position: relative;
     width: 700px;
     height: 300px;
@@ -43,9 +94,29 @@ body {
     padding: 20px;
     background: white;
     border: 8px solid transparent;
-    border-image: linear-gradient(90deg, #693623 0%, rgba(255,255,255,0) 100%) 1;
+    border-image: linear-gradient(90deg, #236956  0%, rgba(255,255,255,0) 100%) 1;
 
     margin: 120px auto 40px auto; 
+} */
+ .card-service-wrapper {
+    position: relative;
+    width: 700px;
+    height: 300px;
+    padding: 8px; /* толщина "границы" */
+    border-radius: 12px; /* скругление */
+    /* background: linear-gradient(90deg, #236956 0%, rgba(255,255,255,0) 100%); */
+    background: linear-gradient(90deg, #8B6F47 0%, rgba(139, 111, 71, 0.3) 60%, transparent 100%);
+    margin: 120px auto 40px auto;
+}
+
+.card-service {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background: white;
+    border-radius: 8px; /* чуть меньше, чем у обертки */
+    display: flex; /* для размещения текста и картинки */
 }
 
 .img-wrapper {
@@ -58,30 +129,30 @@ body {
 
 #img-card1 {
     position: absolute;
-    width: 100%;
+    width: auto;
     max-width: 350px;
     height: auto;
     border-radius: 4px;
     box-shadow: -40px 39px 0px rgba(0, 0, 0, 0.15); 
-    transform: translate(300px, -150px);
+    transform: translate(100px, -100px);
 }
 #img-card2 {
     position: absolute;
-    width: 100%;
+    width: auto;
     max-width: 350px;
     height: auto;
     border-radius: 4px;
     box-shadow: -40px 39px 0px rgba(0, 0, 0, 0.15); 
-    transform: translate(300px, -200px);
+    transform: translate(100px, -100px);
 }
 #img-card3 {
     position: absolute;
-    width: 100%;
+    width: auto;
     max-width: 350px;
     height: auto;
     border-radius: 4px;
     box-shadow: -40px 39px 0px rgba(0, 0, 0, 0.15); 
-    transform: translate(300px, -175px);
+    transform: translate(100px, -100px);
 }
 .txt-wrap {
     text-wrap: balance ;
@@ -89,11 +160,91 @@ body {
 .main-tittles {
     font-size: xx-large;
     font-family: "Inter", sans-serif;
+    font-weight: 700; /* было 500 по умолчанию, теперь жирный */
+    color: #2C2416; /* тёмно-коричневый вместо чёрного — мягче */
 }
+
 .txt-center {
      text-align: center;
 }
 .our-team {
+    margin: 5% 0 5% 0;
+}
+.our-team-txt {
     display: flex;
     justify-content: center;
 }
+/* footer */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.5;
+        }
+        
+
+        .footer{
+            background-color: #ffffff;
+            padding: 40px 0 20px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: center;
+            gap: 5%;
+            padding: 0 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.6;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            color: #333;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 8px;
+        }
+
+        .contact-item svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            color: #999;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 0 40px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px 40px 0;
+            color: #999;
+            font-size: 13px;
+        }
