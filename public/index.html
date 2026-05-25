@@ -1,131 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Услуги по ремонту квартир</title>
-    <link rel="stylesheet" href="css/index/style.css">
-    <link rel="stylesheet" href="css/index/swiper.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-   <script src="js/index/initSlider.js"></script> -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<base target="_blank">
 </head>
 
 <body>
-    <header>
-        <nav class="headerNavFlxb">
-            <img src="media/лого без фона.png" width="7%" height="7%">
-            <div class="flxb-txts-main-page">
-                <a href="index.html" class="main-tittles">Главная </a>
-                <a href="index.html" class="main-tittles">Каталог услуг </a>
-                <a href="index.html" class="main-tittles">О нас </a>
+    <!-- Хедер -->
+    <header class="header-main">
+        <nav class="headerNavFlxb-main-page">
+            <h1>РЕМКВАР</h1>
+            <div class="flxb-txts-header-main-page">
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О нас</a>
             </div>
-            <button class="login-btn">
-                <img src="media/иконка входа.png" width="24.65px" height="29px">
-                <span class="main-tittles" id="login-txt">Войти</span>
+            <button class="login-btn" id="login-btn">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Дверной проём -->
+                    <path
+                        d="M3 3C3 1.89543 3.89543 1 5 1H11C12.1046 1 13 1.89543 13 3V17C13 18.1046 12.1046 19 11 19H5C3.89543 19 3 18.1046 3 17V3Z"
+                        stroke="currentColor" stroke-width="1.5" />
+                    <!-- Стрелка входа -->
+                    <path d="M10 10H17M17 10L14.5 7.5M17 10L14.5 12.5" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span id="login-txt">Вход / Регистрация</span>
             </button>
         </nav>
     </header>
+
+    <!-- Модальное окно авторизации -->
+    <div class="auth-overlay" id="auth-overlay">
+        <div class="auth-modal">
+            <button class="auth-close">&times;</button>
+            <h2>Добро пожаловать</h2>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="login-tab">Вход</button>
+                <button class="auth-tab" id="register-tab">Регистрация</button>
+            </div>
+            <!-- Форма входа -->
+            <div class="auth-form active" id="login-form">
+                <form id="login-form-fields">
+                    <input type="text" id="login-input" placeholder="Логин" required>
+                    <input type="password" id="login-password" placeholder="Пароль" required>
+                    <button type="submit" class="auth-submit">Войти</button>
+                </form>
+            </div>
+            <!-- Форма регистрации -->
+            <div class="auth-form" id="register-form">
+                <form id="register-form-fields">
+                    <input type="text" id="register-login" placeholder="Логин (мин. 3 символа)" required>
+                    <input type="email" id="register-email" placeholder="Email">
+                    <input type="password" id="register-password" placeholder="Пароль (мин. 8 символов)" required>
+                    <button type="submit" class="auth-submit">Зарегистрироваться</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <main>
-        <div class="card-service-wrapper">
-            <div class="card-service">
-                <div class="txts-card-srvc">
-                    <h1 class="main-tittles">ПОКЛЕЙКА ОБОЕВ</h1>
-                    <p><strong>Цена: </strong>50000 ₽</p>
-                    <p><strong>Время работы:</strong> 10 часов</p>
-                    <p class="txt-wrap"><strong>Описание:</strong> Быстро и аккуратно обновим ваш интерьер.<br>
-                        Работаем со всеми видами обоев: от простых бумажных<br> до тяжелых виниловых и текстильных</p>
-                </div>
-                <div class="img-wrapper">
-                    <img id="img-card1" src="media/пример поклейки обоев.webp" alt="Пример">
-                </div>
+        <!--до/после -->
+        <section class="hero-section">
+            <img src="media/фото до после.png" alt="Ремонт до и после" class="hero-image">
+            <div class="hero-overlay">
+                <h1 class="hero-title">МЕНЯЕМ ВАШИ КВАРТИРЫ К&nbsp;ЛУЧШЕМУ</h1>
             </div>
-        </div>
-        <button class="purchase-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#236956" stroke-width="2">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-            <span class="main-tittles" id="login-txt">Хочу!</span>
-        </button>
-        <div class="card-service-wrapper">
-            <div class="card-service">
-                <div class="txts-card-srvc">
-                    <h1 class="main-tittles">ВЕНТИЛЯЦИЯ И&nbsp;КОНДИЦИОНИРОВАНИЕ</h1>
-                    <p><strong>Цена:</strong> 50000 ₽</p>
-                    <p><strong>Время работы:</strong> 10 часов</p>
-                    <p class="txt-wrap"><strong>Описание: </strong> Создадим идеальный микроклимат в вашем<br> доме или
-                        офисе. Выполняем профессиональный монтаж,<br> проектирование систем и установку
-                        кондиционеров<br>
-                        любого
-                        типа</p>
-                </div>
-                <div class="img-wrapper">
-                    <img id="img-card2" src="media/пример услуги кондиционера.jpg" alt="Пример">
-                </div>
-            </div>
-        </div>
-        <button class="purchase-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#236956" stroke-width="2">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-            <span class="main-tittles" id="login-txt">Хочу!</span>
-        </button>
+        </section>
 
-        <div class="card-service-wrapper">
-            <div class="card-service">
-                <div class="txts-card-srvc">
-                    <h1 class="main-tittles">ОБНОВЛЕНИЕ СТЕН</h1>
-                    <p><strong>Цена:</strong> 50000 ₽</p>
-                    <p><strong>Время работы:</strong> 10 часов</p>
-                    <p class="txt-wrap"><strong>Описание:</strong> Декоративная штукатурка с изысканным<br> фактурным
-                        узором. Создает глубокий, благородный<br> рельеф. Преображает интерьер и подчеркивает ваш стиль.
-                        Придает стенам уникальный вид.</p>
-                </div>
-                <div class="img-wrapper">
-                    <img id="img-card3" src="media/ОБНОВЛЕНИЕ СТЕН.jpg" alt="Пример">
-                </div>
-            </div>
-        </div>
-        <button class="purchase-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#236956" stroke-width="2">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-            <span class="main-tittles" id="login-txt">Хочу!</span>
-        </button>
-        <!-- блок наша команда -->
-        <div class="our-team">
-            <h1 class="main-tittles txt-center" ">НАША КОМАНДА</h1>
-            <div class="our-team-txt">
-                <img src="media/боб строитель.png">
-                <img src="media/боб строитель.png">
-                <img src="media/боб строитель.png">
-            </div>
-        </div>
+        <section class="services-section">
+            <h2 class="section-title">Наши услуги</h2>
 
+            <!-- Карточка 1: Поклейка обоев -->
+            <div class="service-card-wrapper">
+                <div class="service-card">
+                    <div class="service-card-text">
+                        <h3>ПОКЛЕЙКА ОБОЕВ</h3>
+                        <p><strong>Цена:</strong> 350 ₽/м²</p>
+                        <p><strong>Время работы:</strong> 1 день</p>
+                        <p>Быстро и аккуратно обновим ваш интерьер. Работаем со всеми видами обоев: от простых бумажных
+                            до тяжелых виниловых и текстильных.</p>
+                        <a href="detail.html?id=1" class="want-btn" target="_self">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                            Оформить
+                        </a>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="media/пример-поклейки-обоев.png" alt="Поклейка обоев">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 2: Обои под покраску -->
+            <div class="service-card-wrapper">
+                <div class="service-card">
+                    <div class="service-card-text">
+                        <h3>ОБОИ ПОД ПОКРАСКУ</h3>
+                        <p><strong>Цена:</strong> 400 ₽/м²</p>
+                        <p><strong>Время работы:</strong> 1 день</p>
+                        <p>Создадим идеальный микроклимат в вашем доме или офисе. Выполняем профессиональный монтаж,
+                            проектирование систем и установку кондиционеров любого типа.</p>
+                        <a href="detail.html?id=2" class="want-btn" target="_self">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                            Оформить
+                        </a>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="media/обои-под-покраску.png" alt="обои-под-покраску">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 3: Обновление стен -->
+            <div class="service-card-wrapper">
+                <div class="service-card">
+                    <div class="service-card-text">
+                        <h3>ПОКРАСКА СТЕН</h3>
+                        <p><strong>Цена:</strong> 300 ₽/м²</p>
+                        <p><strong>Время работы:</strong> 1 день</p>
+                        <p>Качественная покраска стен водоэмульсионными, латексными или акриловыми красками.
+                             Ровный цвет без разводов и подтёков.</p>
+                        <a href="detail.html?id=3" class="want-btn" target="_self">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                            Оформить
+                        </a>
+                    </div>
+                    <div class="service-card-image">
+                        <img src="media/покраска стен.jpeg" alt="покраска стен">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--команда -->
+        <section class="team-section">
+            <h2 class="team-title">КОМАНДА</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="media/работник.png" alt="Специалист 1">
+                    <p>Мастер отделочных работ</p>
+                </div>
+                <div class="team-member">
+                    <img src="media/работник2.png" alt="Специалист 2">
+                    <p>Прораб</p>
+                </div>
+                <div class="team-member">
+                    <img src="media/работник3.png" alt="Специалист 3">
+                    <p>Дизайнер интерьера</p>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Футер -->
     <footer class="footer">
         <div class="footer-container">
-            <!-- О компании -->
             <div class="footer-column">
                 <h3>О компании</h3>
-                <p>Профессиональный ремонт квартир с<br>гарантией качества. Работаем с 2015 года.</p>
+                <p>Профессиональный ремонт квартир.<br> Работаем с 2015 года.</p>
             </div>
-
-            <!-- Контакты -->
             <div class="footer-column">
                 <h3>Контакты</h3>
-
                 <div class="contact-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path
@@ -133,7 +188,6 @@
                     </svg>
                     <a href="tel:+79991234567">+7 (999) 123-45-67</a>
                 </div>
-
                 <div class="contact-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -141,31 +195,26 @@
                     </svg>
                     <a href="mailto:info@remont-kvartir.ru">info@remont-kvartir.ru</a>
                 </div>
-
                 <div class="contact-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                         <circle cx="12" cy="10" r="3" />
                     </svg>
-                    <a href="г. Москва, ул. Примерная, д. 1">г. Москва, ул. Примерная, д. 1</a>
+                    <p>г. Москва, ул. Примерная, д. 1</p>
                 </div>
             </div>
-
-            <!-- Режим работы -->
             <div class="footer-column">
-                <h3>Режим работы</h3>
-                <p>Пн-Пт: 9:00 - 20:00</p>
-                <p>Сб-Вс: 10:00 - 18:00</p>
+                <h3>Мы в соцсетях</h3>
+                <a href="">VK</a>
+                <a href="">Telegram</a>
+                <a href="">Дзен</a>
             </div>
         </div>
-
-        <!-- Разделитель -->
         <div class="divider"></div>
-
-        <!-- Копирайт -->
         <div class="copyright">
-            © 2026 Ремонт квартир. Все права защищены.
+            © 2026 Ремонт квартир. Все права защищены
         </div>
     </footer>
-
+    <script src="js/auth.js"></script>
+</body>
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель администратора</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <div class="admin-container">
+            <h1 class="admin-title">Привет, админ</h1>
+            <p class="admin-subtitle">Панель управления</p>
+            
+            <div class="admin-stats">
+                <div class="admin-stat">
+                    <div class="admin-stat-number" id="users-count">—</div>
+                    <div class="admin-stat-label">пользователей</div>
+                </div>
+                <div class="admin-stat">
+                    <div class="admin-stat-number" id="orders-count">—</div>
+                    <div class="admin-stat-label">заявок</div>
+                </div>
+            </div>
+            
+            <button class="admin-btn" onclick="window.location.href='index.html'">На главную</button>
+            <button class="admin-btn" onclick="logout()" style="margin-left: 10px; background: #e74c3c;">Выйти</button>
+        </div>
+    </main>
+
+    
+    <script>
+        // Проверка админа
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = getCurrentUser();
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Подсчёт статистики
+            const users = JSON.parse(localStorage.getItem('remont_users') || '[]');
+            let totalOrders = 0;
+            users.forEach(u => {
+                totalOrders += (u.orders || []).length;
+            });
+            
+            document.getElementById('users-count').textContent = users.length;
+            document.getElementById('orders-count').textContent = totalOrders;
+        });
+    </script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
